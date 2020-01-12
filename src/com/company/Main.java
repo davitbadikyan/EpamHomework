@@ -42,7 +42,7 @@ public class Main {
         //Adding Students
         Student[] physicsFacultyFirstGradeStudents = new Student[physicsFirstGrade.getStudentCount()];
         Student physicsStudent1 = new Student.StudentBuilder("Poxos", "Poxosyan")
-                .subjectCount(2)
+                .subjectCount(1)
                 .build();
         physicsFacultyFirstGradeStudents[0] = physicsStudent1;
         Student physicsStudent2 = new Student.StudentBuilder("Petros", "Petrosyan")
@@ -56,7 +56,7 @@ public class Main {
                 .build();
         physicsFacultySecondGradeStudents[0] = physicsStudent3;
         Student physicsStudent4 = new Student.StudentBuilder("Marat", "Xaratyan")
-                .subjectCount(2)
+                .subjectCount(1)
                 .build();
         physicsFacultySecondGradeStudents[1] = physicsStudent4;
 
@@ -66,7 +66,7 @@ public class Main {
                 .build();
         philosophyFacultyFirstGradeStudents[0] = philosophyStudent1;
         Student philosophyStudent2 = new Student.StudentBuilder("Lusine", "Meliqyan")
-                .subjectCount(2)
+                .subjectCount(1)
                 .build();
         philosophyFacultyFirstGradeStudents[1] = philosophyStudent2;
 
@@ -76,9 +76,78 @@ public class Main {
                 .build();
         philosophyFacultySecondGradeStudents[0] = philosophyStudent3;
         Student philosophyStudent4 = new Student.StudentBuilder("Gevorg", "Meliqjanyan")
-                .subjectCount(2)
+                .subjectCount(1)
                 .build();
         philosophyFacultySecondGradeStudents[1] = philosophyStudent4;
+
+        //Adding Subjects
+        Subject[] subjectsOfPoxosPoxosyan = new Subject[physicsStudent1.getSubjectCount()];
+        Subject mathOfPoxosPoxosyan = new Subject.SubjectBuilder("Math")
+                .grade(8)
+                .build();
+        subjectsOfPoxosPoxosyan[0] = mathOfPoxosPoxosyan;
+
+        Subject[] subjectsOfPetrosPetrosyan = new Subject[physicsStudent2.getSubjectCount()];
+        Subject mathOfPetrosPetrosyan = new Subject.SubjectBuilder("Math")
+                .grade(9)
+                .build();
+        subjectsOfPetrosPetrosyan[0] = mathOfPetrosPetrosyan;
+
+        Subject physicsOfPetrosPetrosyan = new Subject.SubjectBuilder("Physics")
+                .grade(6)
+                .build();
+        subjectsOfPetrosPetrosyan[1] = physicsOfPetrosPetrosyan;
+
+        Subject[] subjectsOfAnnaSargsyan = new Subject[physicsStudent3.getSubjectCount()];
+        Subject mathOfAnnaSargsyan = new Subject.SubjectBuilder("Math")
+                .grade(7)
+                .build();
+        subjectsOfAnnaSargsyan[0] = mathOfAnnaSargsyan;
+
+        Subject physicsOfAnnaSargsyan = new Subject.SubjectBuilder("Physics")
+                .grade(10)
+                .build();
+        subjectsOfAnnaSargsyan[1] = physicsOfAnnaSargsyan;
+
+        Subject[] subjectsOfMaratXaratyan = new Subject[physicsStudent4.getSubjectCount()];
+        Subject mathOfMaratXaratyan = new Subject.SubjectBuilder("Math")
+                .grade(5)
+                .build();
+        subjectsOfMaratXaratyan[0] = mathOfMaratXaratyan;
+
+        Subject[] subjectsOfDavitDavtyan = new Subject[philosophyStudent1.getSubjectCount()];
+        Subject philosophyOfDavitDavtyan = new Subject.SubjectBuilder("Philosophy")
+                .grade(7)
+                .build();
+        subjectsOfDavitDavtyan[0] = philosophyOfDavitDavtyan;
+
+        Subject mathOfDavidDavtyan = new Subject.SubjectBuilder("Math")
+                .grade(4)
+                .build();
+        subjectsOfDavitDavtyan[1] = mathOfDavidDavtyan;
+
+        Subject[] subjectsOfLusineMeliqyan = new Subject[philosophyStudent2.getSubjectCount()];
+        Subject philosophyOfLusineMeliqyan = new Subject.SubjectBuilder("Philosophy")
+                .grade(10)
+                .build();
+        subjectsOfLusineMeliqyan[0] = philosophyOfLusineMeliqyan;
+
+        Subject[] subjectsOfYanaGharibyan = new Subject[philosophyStudent3.getSubjectCount()];
+        Subject mathOfYanaGharibyan = new Subject.SubjectBuilder("Math")
+                .grade(9)
+                .build();
+        subjectsOfYanaGharibyan[0] = mathOfYanaGharibyan;
+
+        Subject philosophyOfYanaGharibyan = new Subject.SubjectBuilder("Philosophy")
+                .grade(10)
+                .build();
+        subjectsOfYanaGharibyan[1] = philosophyOfYanaGharibyan;
+
+        Subject[] subjectsOfGevorgMeliqjanyan = new Subject[philosophyStudent4.getSubjectCount()];
+        Subject philosophyOfGevorgMeliqjanyan = new Subject.SubjectBuilder("Philosophy")
+                .grade(6)
+                .build();
+        subjectsOfGevorgMeliqjanyan[0] = philosophyOfGevorgMeliqjanyan;
     }
 
 }
