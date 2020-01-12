@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.exceptions.NoSubjectException;
+
 public class Student {
     private String firstName;
     private String lastName;
@@ -9,6 +11,13 @@ public class Student {
         firstName = builder.firstName;
         lastName = builder.lastName;
         subjectCount = builder.subjectCount;
+        if (subjectCount == 0) {
+            try {
+                throw new NoSubjectException();
+            } catch (NoSubjectException e){
+                e.printStackTrace();
+            }
+        }
     }
 
     public String getFirstName() {

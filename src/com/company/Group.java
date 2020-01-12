@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.exceptions.NoStudentException;
+
 public class Group {
     private String groupName;
     private int studentCount;
@@ -7,6 +9,13 @@ public class Group {
     private Group(Group.GroupBuilder builder) {
         groupName = builder.groupName;
         studentCount = builder.studentCount;
+        if (studentCount == 0) {
+            try {
+                throw new NoStudentException();
+            } catch (NoStudentException e){
+                e.printStackTrace();
+            }
+        }
     }
 
     public String getGroupName() {

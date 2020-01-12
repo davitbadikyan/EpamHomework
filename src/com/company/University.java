@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.exceptions.NoFacultyException;
+
 public class University {
     private String universityName;
     private int facultyCount;
@@ -7,6 +9,13 @@ public class University {
     private University(UniversityBuilder builder) {
         universityName = builder.universityName;
         facultyCount = builder.facultyCount;
+        if (facultyCount == 0){
+            try {
+                throw new NoFacultyException();
+            } catch (NoFacultyException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public String getUniversityName() {
@@ -15,6 +24,10 @@ public class University {
 
     public int getFacultyCount() {
         return facultyCount;
+    }
+
+    public void NoFacultyExceptionCatcher() {
+
     }
 
     public static class UniversityBuilder {
