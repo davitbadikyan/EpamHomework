@@ -17,5 +17,26 @@ public class Main {
                 .groupCount(2)
                 .build();
         faculties[1] = philosophy;
+
+        //Making Groups
+        Group[] physicsFacultyGroups = new Group[physics.getGroupCount()];
+        Group physicsFirstGrade = new Group.GroupBuilder("Physics First Grade")
+                .studentCount(2)
+                .build();
+        physicsFacultyGroups[0] = physicsFirstGrade;
+        Group physicsSecondGrade = new Group.GroupBuilder("Physics Second Grade")
+                .studentCount(2)
+                .build();
+        physicsFacultyGroups[1] = physicsSecondGrade;
+
+        Group[] philosophyFacultyGroups = new Group[philosophy.getGroupCount()];
+        Group philosophyFirstGrade = new Group.GroupBuilder("Philosophy First Grade")
+                .studentCount(2)
+                .build();
+        philosophyFacultyGroups[0] = philosophyFirstGrade;
+        Group philosophySecondGrade = new Group.GroupBuilder("Philosophy Second Grade")
+                .studentCount(2)
+                .build();
+        philosophyFacultyGroups[1] = philosophySecondGrade;
     }
 }
