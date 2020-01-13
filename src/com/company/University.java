@@ -5,17 +5,11 @@ import com.company.exceptions.NoFacultyException;
 public class University {
     private String universityName;
     private int facultyCount;
+    private Faculty[] faculties;
 
-    private University(UniversityBuilder builder) {
-        universityName = builder.universityName;
-        facultyCount = builder.facultyCount;
-        if (facultyCount == 0){
-            try {
-                throw new NoFacultyException();
-            } catch (NoFacultyException e) {
-                e.printStackTrace();
-            }
-        }
+    public University(String universityName, int facultyCount) {
+        this.universityName = universityName;
+        this.facultyCount = facultyCount;
     }
 
     public String getUniversityName() {
@@ -26,28 +20,10 @@ public class University {
         return facultyCount;
     }
 
-    public void NoFacultyExceptionCatcher() {
-
-    }
-
-    public static class UniversityBuilder {
-        private String universityName;
-        private int facultyCount;
-
-        public UniversityBuilder(String universityName) {
-            this.universityName = universityName;
-        }
-
-        public UniversityBuilder facultyCount(int facultyCount) {
-            this.facultyCount = facultyCount;
-            return this;
-        }
-
-        public University build() {
-            University university = new University(this);
-            return university;
+    public void setFaculties(Faculty[] faculties) throws NoFacultyException {
+        this.faculties = faculties;
+        if (facultyCount == 0) {
+            throw new NoFacultyException();
         }
     }
-
-
 }

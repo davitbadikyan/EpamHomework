@@ -6,17 +6,15 @@ public class Subject {
     private String subjectName;
     private int grade;
 
-    public Subject(SubjectBuilder builder) {
-        subjectName = builder.subjectName;
-        grade = builder.grade;
-        if (grade < 0 || grade > 10) {
-            try {
-                throw new GradeException();
-            } catch (GradeException e) {
-                e.printStackTrace();
-            }
-        }
+    public Subject(String subjectName) {
+        this.subjectName = subjectName;
+    }
 
+    public void setGrade(int grade) throws GradeException {
+        if (grade < 0 || grade > 10) {
+            throw new GradeException();
+        }
+        this.grade = grade;
     }
 
     public String getSubjectName() {
@@ -25,24 +23,5 @@ public class Subject {
 
     public int getGrade() {
         return grade;
-    }
-
-    public static class SubjectBuilder {
-        private String subjectName;
-        private int grade;
-
-        public SubjectBuilder(String subjectName) {
-            this.subjectName = subjectName;
-        }
-
-        public Subject.SubjectBuilder grade(int grade) {
-            this.grade = grade;
-            return this;
-        }
-
-        public Subject build() {
-            Subject subject = new Subject(this);
-            return subject;
-        }
     }
 }
