@@ -11,6 +11,10 @@ public class Student {
     private int subjectCount;
     private Subject[] subjects;
 
+    public Subject[] getSubjects() {
+        return subjects;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -35,10 +39,7 @@ public class Student {
         return subjectCount;
     }
 
-    public void setSubjects(Subject[] subjects) throws NoSubjectException{
-        if (subjectCount == 0) {
-                throw new NoSubjectException();
-            }
+    public void setSubjects(Subject[] subjects) {
         this.subjects = subjects;
     }
 
@@ -49,6 +50,7 @@ public class Student {
         facultyName = builder.facultyName;
         groupName = builder.groupName;
         subjectCount = builder.subjectCount;
+
 
     }
 
@@ -70,8 +72,11 @@ public class Student {
             this.groupName = groupName;
         }
 
-        public Student.StudentBuilder subjectCount(int subjectCount) {
+        public Student.StudentBuilder subjectCount(int subjectCount) throws NoSubjectException {
             this.subjectCount = subjectCount;
+            if (subjectCount == 0) {
+                throw new NoSubjectException();
+            }
             return this;
         }
 

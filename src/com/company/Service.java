@@ -4,6 +4,16 @@ import com.company.exceptions.*;
 
 public class Service {
     private int allStudentsCount;
+    private int inUniOneSubjectStudentsCount = 0;
+    private int inUniOneSubjectAllGrade = 0;
+    private double inUniOneSubjectAvarage;
+    private int inFacOneSubjectAllGrade = 0;
+    private int inFacOneSubjectStudentsCount = 0;
+    private double inFacOneSubjectAvarage;
+    private int inGroupOneSubjectAllGrade = 0;
+    private int inGroupOneSubjectStudentsCount = 0;
+    private double inGroupOneSubjectAvarage;
+    private double studentGpa;
 
     public void UniversityStructure() {
         //Adding University
@@ -131,6 +141,7 @@ public class Service {
 
             Subject[] subjectsOfMaratXaratyan = new Subject[physicsStudent4.getSubjectCount()];
             Subject mathOfMaratXaratyan = new Subject("Math");
+            mathOfMaratXaratyan.setGrade(8);
             subjectsOfMaratXaratyan[0] = mathOfMaratXaratyan;
             physicsStudent4.setSubjects(subjectsOfMaratXaratyan);
 
@@ -164,11 +175,11 @@ public class Service {
             subjectsOfGevorgMeliqjanyan[0] = philosophyOfGevorgMeliqjanyan;
             philosophyStudent4.setSubjects(subjectsOfGevorgMeliqjanyan);
 
-            allStudentsCount = physicsFacultyFirstGradeStudents.length
+            this.allStudentsCount = physicsFacultyFirstGradeStudents.length
                     + physicsFacultySecondGradeStudents.length
                     + philosophyFacultyFirstGradeStudents.length
                     + philosophyFacultySecondGradeStudents.length;
-            Student[] allStudents = new Student[allStudentsCount];
+            Student[] allStudents = new Student[this.allStudentsCount];
             int pos = 0;
             for (Student element : physicsFacultyFirstGradeStudents) {
                 allStudents[pos] = element;
@@ -186,8 +197,39 @@ public class Service {
                 allStudents[pos] = element;
                 pos++;
             }
+
+            for (int i = 0; i < allStudents.length; i++) {
+                for (int j = 0; j < allStudents[i].getSubjects().length; j++) {
+                    if (allStudents[i].getUniversityName().equals("RAU")
+                            && allStudents[i].getSubjects()[j].getSubjectName().equals("Math")) {
+                        inUniOneSubjectAllGrade += allStudents[i].getSubjects()[j].getGrade();
+                        inUniOneSubjectStudentsCount++;
+                    }
+                    if (allStudents[i].getFacultyName().equals("Physics")
+                            && allStudents[i].getSubjects()[j].getSubjectName().equals("Math")) {
+                        inFacOneSubjectAllGrade += allStudents[i].getSubjects()[j].getGrade();
+                        inFacOneSubjectStudentsCount++;
+                    }
+                    if (allStudents[i].getGroupName().equals("Physics First Grade")
+                            && allStudents[i].getSubjects()[j].getSubjectName().equals("Math")) {
+                        inGroupOneSubjectAllGrade += allStudents[i].getSubjects()[j].getGrade();
+                        inGroupOneSubjectStudentsCount++;
+                    }
+                }
+            }
+            for (int i = 0; i < allStudents[5].getSubjectCount(); i++) {
+                studentGpa += allStudents[5].getSubjects()[i].getGrade();
+            }
+            this.inUniOneSubjectAvarage = inUniOneSubjectAllGrade / inUniOneSubjectStudentsCount;
+            this.inFacOneSubjectAvarage = inFacOneSubjectAllGrade / inFacOneSubjectStudentsCount;
+            this.inGroupOneSubjectAvarage = inGroupOneSubjectAllGrade / inGroupOneSubjectStudentsCount;
+            System.out.println("University's average grade from Math is " + this.inUniOneSubjectAvarage);
+            System.out.println("Faculty's average grade from Math is " + this.inFacOneSubjectAvarage);
+            System.out.println("Groups's average grade from Math is " + this.inGroupOneSubjectAvarage);
+            System.out.println("Current chosen student's GPA is " + this.studentGpa);
+
         } catch (GradeException | NoFacultyException | NoGroupException | NoStudentException | NoSubjectException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }

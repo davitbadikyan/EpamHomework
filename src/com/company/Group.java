@@ -7,9 +7,12 @@ public class Group {
     private int studentCount;
     private Student[] students;
 
-    public Group(String groupName, int studentCount) {
+    public Group(String groupName, int studentCount) throws NoStudentException {
         this.groupName = groupName;
         this.studentCount = studentCount;
+        if (studentCount == 0) {
+            throw new NoStudentException();
+        }
     }
 
     public String getGroupName() {
@@ -20,10 +23,7 @@ public class Group {
         return studentCount;
     }
 
-    public void setStudents(Student[] students) throws NoStudentException {
+    public void setStudents(Student[] students) {
         this.students = students;
-        if (studentCount == 0) {
-            throw new NoStudentException();
-        }
     }
 }

@@ -7,9 +7,12 @@ public class Faculty {
     private int groupCount;
     private Group[] groups;
 
-    public Faculty(String facultyName, int groupCount) {
+    public Faculty(String facultyName, int groupCount) throws NoGroupException {
         this.facultyName = facultyName;
         this.groupCount = groupCount;
+        if (groupCount == 0) {
+            throw new NoGroupException();
+        }
     }
 
     public String getFacultyName() {
@@ -20,10 +23,8 @@ public class Faculty {
         return groupCount;
     }
 
-    public void setGroups(Group[] groups) throws NoGroupException {
+    public void setGroups(Group[] groups) {
         this.groups = groups;
-        if (groupCount == 0) {
-            throw new NoGroupException();
-        }
+
     }
 }
