@@ -1,6 +1,6 @@
-package com.company;
+package com.university_project;
 
-import com.company.exceptions.NoSubjectException;
+import com.university_project.exceptions.NoSubjectException;
 
 public class Student {
     private String firstName;
@@ -8,7 +8,6 @@ public class Student {
     private String universityName;
     private String facultyName;
     private String groupName;
-    private int subjectCount;
     private Subject[] subjects;
 
     public Subject[] getSubjects() {
@@ -35,11 +34,11 @@ public class Student {
         return groupName;
     }
 
-    public int getSubjectCount() {
-        return subjectCount;
-    }
 
     public void setSubjects(Subject[] subjects) {
+        if (subjects.length == 0) {
+            throw new NoSubjectException("Student has no subject");
+        }
         this.subjects = subjects;
     }
 
@@ -49,8 +48,6 @@ public class Student {
         universityName = builder.universityName;
         facultyName = builder.facultyName;
         groupName = builder.groupName;
-        subjectCount = builder.subjectCount;
-
 
     }
 
@@ -60,8 +57,6 @@ public class Student {
         private String universityName;
         private String facultyName;
         private String groupName;
-        private int subjectCount;
-        private Subject[] subjects;
 
 
         public StudentBuilder(String firstName, String lastName, String universityName, String facultyName, String groupName) {
@@ -72,13 +67,6 @@ public class Student {
             this.groupName = groupName;
         }
 
-        public Student.StudentBuilder subjectCount(int subjectCount) throws NoSubjectException {
-            this.subjectCount = subjectCount;
-            if (subjectCount == 0) {
-                throw new NoSubjectException();
-            }
-            return this;
-        }
 
         public Student build() {
             Student student = new Student(this);

@@ -1,6 +1,6 @@
-package com.company;
+package com.university_project;
 
-import com.company.exceptions.GradeException;
+import com.university_project.exceptions.GradeException;
 
 public class Subject {
     private String subjectName;
@@ -10,9 +10,9 @@ public class Subject {
         this.subjectName = subjectName;
     }
 
-    public void setGrade(int grade) throws GradeException {
+    public void setGrade(int grade)  {
         if (grade < 0 || grade > 10) {
-            throw new GradeException();
+            throw new GradeException("Invalid grade");
         }
         this.grade = grade;
     }
