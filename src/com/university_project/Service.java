@@ -13,6 +13,10 @@ public class Service {
     private double inGroupOneSubjectAverage;
     private double studentGpa;
     private Student[] allStudents;
+    private Faculty[] faculties;
+    private String facultyName;
+    private String subjectName;
+
 
     public void universityStructure() {
         //Adding University
@@ -22,7 +26,7 @@ public class Service {
             //Adding Faculties
             Faculty physics = new Faculty("Physics");
             Faculty philosophy = new Faculty("Philosophy");
-            Faculty[] faculties = new Faculty[]{physics, philosophy};
+            this.faculties = new Faculty[]{physics, philosophy};
             university.setFaculties(faculties);
 
             //Adding Groups
@@ -168,12 +172,12 @@ public class Service {
         }
     }
 
-    public void uniFromOneSubjectGPA() {
+    public void uniFromOneSubjectGPA(String uniName, String subjectName) {
         for (int i = 0; i < allStudents.length; i++) {
             for (int j = 0; j < allStudents[i].getSubjects().length; j++) {
-                if (allStudents[i].getUniversityName().equals("RAU")
+                if (allStudents[i].getUniversityName().equals(uniName)
                         && allStudents[i].
-                        getSubjects()[j].getSubjectName().equals("Math")) {
+                        getSubjects()[j].getSubjectName().equals(subjectName)) {
                     inUniOneSubjectAllGrade += allStudents[i].getSubjects()[j].getGrade();
                     inUniOneSubjectStudentsCount++;
                 }
@@ -184,11 +188,11 @@ public class Service {
         System.out.println("University's average grade from Math is " + this.inUniOneSubjectAverage);
     }
 
-    public void facultyFromOneSubjectGPA() {
+    public void facultyFromOneSubjectGPA(String facultyName, String subjectName) {
         for (int i = 0; i < allStudents.length; i++) {
             for (int j = 0; j < allStudents[i].getSubjects().length; j++) {
-                if (allStudents[i].getFacultyName().equals("Physics")
-                        && allStudents[i].getSubjects()[j].getSubjectName().equals("Math")) {
+                if (allStudents[i].getFacultyName().equals(facultyName)
+                        && allStudents[i].getSubjects()[j].getSubjectName().equals(subjectName)) {
                     inFacOneSubjectAllGrade += allStudents[i].getSubjects()[j].getGrade();
                     inFacOneSubjectStudentsCount++;
                 }
@@ -199,11 +203,11 @@ public class Service {
         System.out.println("Faculty's average grade from Math is " + this.inFacOneSubjectAverage);
     }
 
-    public void groupFromOneSubjectGPA() {
+    public void groupFromOneSubjectGPA(String groupName, String subjectName) {
         for (int i = 0; i < allStudents.length; i++) {
             for (int j = 0; j < allStudents[i].getSubjects().length; j++) {
-                if (allStudents[i].getGroupName().equals("Physics First Grade")
-                        && allStudents[i].getSubjects()[j].getSubjectName().equals("Math")) {
+                if (allStudents[i].getGroupName().equals(groupName)
+                        && allStudents[i].getSubjects()[j].getSubjectName().equals(subjectName)) {
                     inGroupOneSubjectAllGrade += allStudents[i].getSubjects()[j].getGrade();
                     inGroupOneSubjectStudentsCount++;
                 }
@@ -213,9 +217,9 @@ public class Service {
         System.out.println("Groups's average grade from Math is " + this.inGroupOneSubjectAverage);
     }
 
-    public void oneStudentGPA() {
-        for (int i = 0; i < allStudents[5].getSubjects().length; i++) {
-            studentGpa += allStudents[5].getSubjects()[i].getGrade();
+    public void oneStudentGPA(int studentIndex) {
+        for (int i = 0; i < allStudents[studentIndex].getSubjects().length; i++) {
+            studentGpa += allStudents[studentIndex].getSubjects()[i].getGrade();
         }
         System.out.println("Current chosen student's GPA is " + this.studentGpa);
     }
