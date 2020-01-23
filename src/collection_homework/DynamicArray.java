@@ -7,22 +7,22 @@ public class DynamicArray {
 
     public DynamicArray() {
         students = new Student[1];
-        capacity = 0;
-        size = 1;
+        capacity = 1;
+        size = 0;
     }
 
     public boolean add(Student student) {
         if (capacity == size) {
-            sizeDoubling();
+            capacityDoubling();
         }
-        students[capacity] = student;
-        capacity++;
+        students[size] = student;
+        size++;
         return true;
     }
 
     public void remove(Student student) {
         for (int i = 0; i < size; i++) {
-            if (student == students[i]) {
+            if (student.equals(students[i])) {
                 for (int j = i; j < size - 1; j++) {
                     students[j] = students[j + 1];
                 }
@@ -32,26 +32,20 @@ public class DynamicArray {
         }
     }
 
-    private void sizeDoubling() {
+    private void capacityDoubling() {
         Student temp[] = null;
         if (capacity == size) {
-            temp = new Student[size * 2];
-            for (int i = 0; i < size; i++) {
+            temp = new Student[capacity * 2];
+            for (int i = 0; i < capacity; i++) {
                 temp[i] = students[i];
             }
         }
         students = temp;
-        size = size * 2;
+        capacity = capacity * 2;
     }
 
     public int size() {
         return size;
-    }
-
-    public void printElements() {
-        for (Student str : students) {
-            System.out.println(str);
-        }
     }
 
     public Student get(int index) {
@@ -59,6 +53,12 @@ public class DynamicArray {
             return null;
         }
         return students[index];
+    }
+
+    public void printElements() {
+        for (int i = 0; i < size ; i++) {
+            System.out.println(students[i]);
+        }
     }
 }
 

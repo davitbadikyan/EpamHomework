@@ -61,9 +61,10 @@ public class Main {
         studentsWithDynamic.add(s4);
         studentsWithDynamic.add(s5);
         System.out.println(studentsWithDynamic.size());
-        studentsWithDynamic.remove(s3);
+        studentsWithDynamic.remove(s1);
+        System.out.println();
         studentsWithDynamic.printElements();
+        System.out.println();
         System.out.println(studentsWithDynamic.get(1));
-
     }
 }
