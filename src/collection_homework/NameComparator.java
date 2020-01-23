@@ -1,4 +1,4 @@
-package collection_homework.first_problem;
+package collection_homework;
 
 import java.util.Comparator;
 

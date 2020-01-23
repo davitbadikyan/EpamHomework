@@ -1,6 +1,6 @@
-package collection_homework.first_problem;
+package collection_homework;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private String firstName;
     private String lastName;
     private int age;
@@ -25,6 +25,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "[ firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
+        return "[firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
+    }
+
+    @Override
+    public int compareTo(Student student) {
+        return this.lastName.compareTo(student.lastName);
     }
 }
