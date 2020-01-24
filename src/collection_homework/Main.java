@@ -20,12 +20,12 @@ public class Main {
         students.add(new Student("Vardan", "Petrosyan", 22));
 
         Collections.sort(students, new AgeComparator());
-        for(Student str: students){
+        for (Student str : students) {
             System.out.println(str);
         }
         System.out.println();
         Collections.sort(students, new NameComparator());
-        for(Student str: students){
+        for (Student str : students) {
             System.out.println(str);
         }
         System.out.println();
@@ -43,11 +43,11 @@ public class Main {
         studentsWithLinkedList.add(new Student("Narek", "Asatryan", 48));
         studentsWithLinkedList.add(new Student("Vardan", "Petrosyan", 22));
         Collections.sort(studentsWithLinkedList);
-        for(Student str: studentsWithLinkedList){
+        for (Student str : studentsWithLinkedList) {
             System.out.println(str);
         }
         System.out.println();
-
+        studentsWithLinkedList.pop();
         // problem N3 and initializing it
         Student s1 = new Student("Poxos", "Poxosyan", 19);
         Student s2 = new Student("Arsen", "Xachatryan", 21);
@@ -66,5 +66,18 @@ public class Main {
         studentsWithDynamic.printElements();
         System.out.println();
         System.out.println(studentsWithDynamic.get(1));
+
+
+        System.out.println();
+
+        // problem N4
+        DoublyLinkedList studentsDynamicLinkedList = new DoublyLinkedList();
+        studentsDynamicLinkedList.push(s1);
+        studentsDynamicLinkedList.push(s2);
+        studentsDynamicLinkedList.addLast(s3);
+        studentsDynamicLinkedList.addLast(s4);
+        studentsDynamicLinkedList.print();
+        System.out.println(studentsDynamicLinkedList.size());
+        studentsDynamicLinkedList.pop();
     }
 }
