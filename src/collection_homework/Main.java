@@ -18,19 +18,19 @@ public class Main {
         students.add(new Student("Petros", "Hakobyan", 64));
         students.add(new Student("Narek", "Asatryan", 48));
         students.add(new Student("Vardan", "Petrosyan", 22));
-
+        System.out.println("Sorting by age");
         Collections.sort(students, new AgeComparator());
         for (Student str : students) {
             System.out.println(str);
         }
-        System.out.println();
+        System.out.println("Sorting by name");
         Collections.sort(students, new NameComparator());
         for (Student str : students) {
             System.out.println(str);
         }
-        System.out.println();
 
         // Second Problem
+        System.out.println("\n Second problem \n");
         LinkedList<Student> studentsWithLinkedList = new LinkedList<>();
         studentsWithLinkedList.add(new Student("Poxos", "Poxosyan", 19));
         studentsWithLinkedList.add(new Student("Arsen", "Xachatryan", 21));
@@ -46,9 +46,9 @@ public class Main {
         for (Student str : studentsWithLinkedList) {
             System.out.println(str);
         }
-        System.out.println();
-        studentsWithLinkedList.pop();
+
         // problem N3 and initializing it
+        System.out.println("\n Problem N3 \n");
         Student s1 = new Student("Poxos", "Poxosyan", 19);
         Student s2 = new Student("Arsen", "Xachatryan", 21);
         Student s3 = new Student("Karen", "Manasyan", 17);
@@ -60,24 +60,22 @@ public class Main {
         studentsWithDynamic.add(s3);
         studentsWithDynamic.add(s4);
         studentsWithDynamic.add(s5);
-        System.out.println(studentsWithDynamic.size());
+        System.out.println("Dynamic array size = " + studentsWithDynamic.size());
         studentsWithDynamic.remove(s1);
-        System.out.println();
+        System.out.println("Printing elements after removing");
         studentsWithDynamic.printElements();
-        System.out.println();
+        System.out.println("Getting an element");
         System.out.println(studentsWithDynamic.get(1));
 
-
-        System.out.println();
-
         // problem N4
-        DoublyLinkedList studentsDynamicLinkedList = new DoublyLinkedList();
-        studentsDynamicLinkedList.push(s1);
-        studentsDynamicLinkedList.push(s2);
-        studentsDynamicLinkedList.addLast(s3);
-        studentsDynamicLinkedList.addLast(s4);
-        studentsDynamicLinkedList.print();
-        System.out.println(studentsDynamicLinkedList.size());
-        studentsDynamicLinkedList.pop();
+        System.out.println("\n Forth problem");
+        DoublyLinkedList studentsLinkedList  = new DoublyLinkedList();
+        studentsLinkedList.push(s1);
+        studentsLinkedList.push(s2);
+        studentsLinkedList.addLast(s3);
+        studentsLinkedList.addLast(s4);
+        studentsLinkedList.print();
+        System.out.println("DoublyLinkedList size = " + studentsLinkedList.size());
+        studentsLinkedList.pop();
     }
 }

@@ -3,10 +3,13 @@ package collection_homework;
 import java.util.NoSuchElementException;
 
 public class DoublyLinkedList {
-    public class Node {
-        protected Student student;
-        protected Node next;
-        protected Node prev;
+    private Node start;
+    private Node end;
+    private int size;
+    private class Node {
+        private Student student;
+        private Node next;
+        private Node prev;
 
         public Node() {
             next = null;
@@ -21,11 +24,11 @@ public class DoublyLinkedList {
         }
 
         public void setLinkNext(Node next) {
-            next = next;
+            this.next = next;
         }
 
         public void setLinkPrev(Node prev) {
-            prev = prev;
+            this.prev = prev;
         }
 
         public Node getLinkNext() {
@@ -37,17 +40,13 @@ public class DoublyLinkedList {
         }
 
         public void setData(Student student) {
-            student = student;
+            this.student = student;
         }
 
         public Student getData() {
             return student;
         }
     }
-
-    protected Node start;
-    protected Node end;
-    public int size;
 
     public DoublyLinkedList() {
         start = null;
@@ -88,10 +87,9 @@ public class DoublyLinkedList {
     public void print() {
         Node temp = start;
         while (temp != null) {
-            System.out.print(temp.student + " ");
+            System.out.print(temp.student + "\n");
             temp = temp.next;
         }
-        System.out.println("\n");
     }
 
     public Student pop() {

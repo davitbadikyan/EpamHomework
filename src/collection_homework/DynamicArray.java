@@ -1,7 +1,7 @@
 package collection_homework;
 
 public class DynamicArray {
-    private Student students[];
+    private Student[] students;
     private int size;
     private int capacity;
 
@@ -20,20 +20,26 @@ public class DynamicArray {
         return true;
     }
 
-    public void remove(Student student) {
-        for (int i = 0; i < size; i++) {
-            if (student.equals(students[i])) {
-                for (int j = i; j < size - 1; j++) {
-                    students[j] = students[j + 1];
+    public boolean remove(Student student) {
+        if (size != 0){
+            for (int i = 0; i < size; i++) {
+                if (student.equals(students[i])) {
+                    Student temp = students[i];
+                    for (int j = i; j < size - 1; j++) {
+                        students[j] = students[j + 1];
+                    }
+                    students[size - 1] = null;
+                    size--;
+                    System.out.println("deleted " + temp);
+                    return true;
                 }
-                students[size - 1] = null;
-                size--;
             }
         }
+        return false;
     }
 
     private void capacityDoubling() {
-        Student temp[] = null;
+        Student[] temp = null;
         if (capacity == size) {
             temp = new Student[capacity * 2];
             for (int i = 0; i < capacity; i++) {
@@ -56,7 +62,7 @@ public class DynamicArray {
     }
 
     public void printElements() {
-        for (int i = 0; i < size ; i++) {
+        for (int i = 0; i < size; i++) {
             System.out.println(students[i]);
         }
     }

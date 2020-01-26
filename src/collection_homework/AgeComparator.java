@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 public class AgeComparator implements Comparator<Student> {
     @Override
-    public int compare(Student student1, Student student2) {
-        return student2.getAge() - student1.getAge();
+    public int compare(Student firstStudent, Student secondStudent) {
+        return firstStudent.getAge() - secondStudent.getAge();
 
     }
 }
