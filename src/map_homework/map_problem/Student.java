@@ -1,4 +1,4 @@
-package map_homework;
+package map_homework.map_problem;
 
 import java.util.Objects;
 

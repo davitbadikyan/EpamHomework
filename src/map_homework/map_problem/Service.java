@@ -1,4 +1,4 @@
-package map_homework;
+package map_homework.map_problem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
