@@ -1,11 +1,12 @@
 package map_homework.map_problem;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.HashMap;
 
 public class Service {
     private HashMap<Student, Integer> studentsHashMap = new HashMap<>();
-    private HashMap<Faculty, Integer> facultiesHashMap = new HashMap<>();
+    private EnumMap<Faculty, Integer> facultyEnumMap = new EnumMap<>(Faculty.class);
 
     public HashMap<Student, Integer> getStudentsMap(ArrayList<Student> students) {
         for (Student str : students) {
@@ -15,12 +16,12 @@ public class Service {
         return studentsHashMap;
     }
 
-    public HashMap<Faculty, Integer> getFacultiesMap(ArrayList<Student> students) {
+    public EnumMap<Faculty, Integer> getFacultiesMap(ArrayList<Student> students) {
         for (Student str : students) {
-            Integer studentsCountInFaculties = facultiesHashMap.get(str.getFaculty());
-            facultiesHashMap.put(str.getFaculty(), (studentsCountInFaculties == null) ? 1 : studentsCountInFaculties + 1);
+            Integer studentsCountInFaculties = facultyEnumMap.get(str.getFaculty());
+            facultyEnumMap.put(str.getFaculty(), (studentsCountInFaculties == null) ? 1 : studentsCountInFaculties + 1);
         }
-        return facultiesHashMap;
+        return facultyEnumMap;
     }
 
     public void printStudentsMap(HashMap<Student, Integer> hashMap) {
@@ -29,8 +30,8 @@ public class Service {
         }
     }
 
-    public void printFacultiesMap(HashMap<Faculty, Integer> hashMap) {
-        for (HashMap.Entry<Faculty, Integer> entry : hashMap.entrySet()) {
+    public void printFacultiesMap(EnumMap<Faculty, Integer> enumMap) {
+        for (HashMap.Entry<Faculty, Integer> entry : enumMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
