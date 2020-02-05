@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Service {
     private HashMap<Student, Integer> studentsHashMap = new HashMap<>();
-    private HashMap<String, Integer> facultiesHashMap = new HashMap<>();
+    private HashMap<Faculty, Integer> facultiesHashMap = new HashMap<>();
 
     public HashMap<Student, Integer> getStudentsMap(ArrayList<Student> students) {
         for (Student str : students) {
@@ -15,7 +15,7 @@ public class Service {
         return studentsHashMap;
     }
 
-    public HashMap<String, Integer> getFacultiesMap(ArrayList<Student> students) {
+    public HashMap<Faculty, Integer> getFacultiesMap(ArrayList<Student> students) {
         for (Student str : students) {
             Integer studentsCountInFaculties = facultiesHashMap.get(str.getFaculty());
             facultiesHashMap.put(str.getFaculty(), (studentsCountInFaculties == null) ? 1 : studentsCountInFaculties + 1);
@@ -29,8 +29,8 @@ public class Service {
         }
     }
 
-    public void printFacultiesMap(HashMap<String, Integer> hashMap) {
-        for (HashMap.Entry<String, Integer> entry : hashMap.entrySet()) {
+    public void printFacultiesMap(HashMap<Faculty, Integer> hashMap) {
+        for (HashMap.Entry<Faculty, Integer> entry : hashMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
