@@ -46,4 +46,11 @@ public class Glasses implements Comparable<Glasses> {
         }
         return temp;
     }
+
+    @Override
+    public String toString() {
+        return "type='" + type + '\'' +
+                ", brand='" + brand + '\'' +
+                ", gender='" + gender + '\'';
+    }
 }

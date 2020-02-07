@@ -46,4 +46,11 @@ public class Coffee implements Comparable<Coffee> {
         }
         return temp;
     }
+
+    @Override
+    public String toString() {
+        return "color='" + color + '\'' +
+                ", type='" + type + '\'' +
+                ", country='" + country + '\'';
+    }
 }
