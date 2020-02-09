@@ -111,7 +111,7 @@ public class SortedTreeSet<T extends Comparable<T>> implements Set<T> {
     }
 
     private void printRecursive(TreeNode root) {
-        if (root.data != null) {
+        if (root != null) {
             printRecursive(root.left);
             System.out.println(root.data);
             printRecursive(root.right);
