@@ -8,6 +8,9 @@ public class Glasses implements Comparable<Glasses> {
     private String gender;
 
     public Glasses(String type, String brand, String gender) {
+        if (type == null || brand == null || gender == null){
+            throw new IllegalArgumentException("Glasses is not properly initialized");
+        }
         this.type = type;
         this.brand = brand;
         this.gender = gender;

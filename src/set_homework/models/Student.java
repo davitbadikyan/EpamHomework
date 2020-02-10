@@ -8,6 +8,9 @@ public class Student implements Comparable<Student> {
     private int age;
 
     public Student(String firstName, String lastName, int age) {
+        if (firstName == null || lastName == null || age < 0){
+            throw new IllegalArgumentException("Student is not properly initialized");
+        }
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

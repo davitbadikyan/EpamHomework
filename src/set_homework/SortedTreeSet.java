@@ -55,6 +55,10 @@ public class SortedTreeSet<T extends Comparable<T>> implements Set<T> {
         return containsRecursive(root, item);
     }
 
+    public void print() {
+        printRecursive(root);
+    }
+
     private TreeNode addRecursive(TreeNode root, T item) {
         if (root == null) {
             root = new TreeNode(item);
@@ -104,10 +108,6 @@ public class SortedTreeSet<T extends Comparable<T>> implements Set<T> {
             root = root.left;
         }
         return min;
-    }
-
-    public void print() {
-        printRecursive(root);
     }
 
     private void printRecursive(TreeNode root) {

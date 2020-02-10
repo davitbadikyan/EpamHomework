@@ -8,6 +8,9 @@ public class Coffee implements Comparable<Coffee> {
     private String country;
 
     public Coffee(String color, String type, String country) {
+        if (color == null || type == null || country == null){
+            throw new IllegalArgumentException("Coffee is not properly initialized");
+        }
         this.color = color;
         this.type = type;
         this.country = country;
